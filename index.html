@@ -14,11 +14,19 @@
 
         let getAsciiCode = c => c.charCodeAt(0);
 
+        let bubbleSort = function(arr) {
+            for 
+        }
+
         $(document).ready(function () {
             $('#button-textbox-one').click(function() {
-                let text = $('#textarea-one').text();
+                let text = $('#textarea-one').val();
+                let asciiArr = text.split('').map(x => getAsciiCode(x));
+                alert(text);
+                alert(asciiArr);
+
             });
-        });
+        }); 
 
     </script>
 </head>
@@ -32,7 +40,7 @@
             <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-margin-top" uk-grid>
                 <div>
                     <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">Entrada</h3>
+                        <h3 class="uk-card-title">Entrada Uno</h3>
                         <p>Ingrese el texto a ordenar en el textbox siguiente:</p>
                         <div class="uk-margin">
                             <textarea class="uk-textarea" rows="5" placeholder="Textarea" id="textarea-one"></textarea>
@@ -42,7 +50,7 @@
                 </div>
                 <div>
                     <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">Entrada</h3>
+                        <h3 class="uk-card-title">Entrada Dos</h3>
                         <p>Ingrese el texto a ordenar en el textbox siguiente:</p>
                         <div class="uk-margin">
                             <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
@@ -54,14 +62,14 @@
             <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-margin-top uk-margin-bottom uk-height-max-large" uk-grid>
                 <div>
                     <div class="uk-card uk-card-primary uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">Salida</h3>
+                        <h3 class="uk-card-title">Salida Uno</h3>
                         <p>El primer texto ordenado es el siguiente:</p>
                         <p id="output-one"></p>
                     </div>
                 </div>
                 <div>
                     <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-overflow-auto">
-                        <h3 class="uk-card-title">Salida</h3>
+                        <h3 class="uk-card-title">Salida Dos</h3>
                         <p>El segundo texto ordenado es el siguiente:</p>
                         <p id="output-two"></p>
                     </div>
@@ -70,7 +78,7 @@
             <div class="uk-child-width-1-1 uk-grid-small uk-grid-match uk-margin-top uk-margin-bottom uk-height-max-large" uk-grid>
                 <div>
                     <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">Salida</h3>
+                        <h3 class="uk-card-title">¿Son iguales los inputs?</h3>
                         <p>Checar si son iguales los inputs.</p>
                         <p id="output-three"></p>
                         <button class="uk-button uk-button-default uk-align-right" id="button-check">Ejecutar</button>

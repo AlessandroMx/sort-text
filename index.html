@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,75 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+    <script>
+
+        let getAsciiCode = c => c.charCodeAt(0);
+
+        $(document).ready(function () {
+            $('#button-textbox-one').click(function() {
+                let text = $('#textarea-one').text();
+            });
+        });
+
+    </script>
 </head>
+
 <body>
     <div uk-grid uk-height-viewport>
-        <div class="uk-width-1-4 uk-height-1-1">
+        <div class="uk-width-1-4 uk-height-1-1 uk-container">
             <h1 class="uk-heading-primary uk-text-center uk-margin-top">Text Sorting App</h1>
         </div>
         <div class="uk-width-3-4 uk-container uk-background-cover uk-height-1-1" style="background-image: url(./background.jpg);">
-            
+            <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-margin-top" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">Entrada</h3>
+                        <p>Ingrese el texto a ordenar en el textbox siguiente:</p>
+                        <div class="uk-margin">
+                            <textarea class="uk-textarea" rows="5" placeholder="Textarea" id="textarea-one"></textarea>
+                        </div>
+                        <button class="uk-button uk-button-default uk-align-right" id="button-textbox-one">Ordenar</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">Entrada</h3>
+                        <p>Ingrese el texto a ordenar en el textbox siguiente:</p>
+                        <div class="uk-margin">
+                            <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+                        </div>
+                        <button class="uk-button uk-button-default uk-align-right" id="button-textbox-two">Ordenar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-margin-top uk-margin-bottom uk-height-max-large" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">Salida</h3>
+                        <p>El primer texto ordenado es el siguiente:</p>
+                        <p id="output-one"></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-overflow-auto">
+                        <h3 class="uk-card-title">Salida</h3>
+                        <p>El segundo texto ordenado es el siguiente:</p>
+                        <p id="output-two"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-child-width-1-1 uk-grid-small uk-grid-match uk-margin-top uk-margin-bottom uk-height-max-large" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">Salida</h3>
+                        <p>Checar si son iguales los inputs.</p>
+                        <p id="output-three"></p>
+                        <button class="uk-button uk-button-default uk-align-right" id="button-check">Ejecutar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

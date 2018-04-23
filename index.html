@@ -14,19 +14,36 @@
 
         let getAsciiCode = c => c.charCodeAt(0);
 
-        let bubbleSort = function(arr) {
-            for 
+        let swap = (arr, x, y) => {
+            let tmp = arr[x];
+            arr[x] = arr[y];
+            arr[y] = tmp;
+            return arr;
         }
 
+        let bubbleSort = function (arr) {
+            console.log(arr);
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    console.log('entró al if');
+                    swap(arr, arr[i], arr[i+1]);
+                    console.log(arr);
+                }
+            }
+            console.log(arr);
+            return arr;
+        }
+
+
         $(document).ready(function () {
-            $('#button-textbox-one').click(function() {
+            $('#button-textbox-one').click(function () {
                 let text = $('#textarea-one').val();
                 let asciiArr = text.split('').map(x => getAsciiCode(x));
                 alert(text);
                 alert(asciiArr);
-
+                alert(bubbleSort(asciiArr));
             });
-        }); 
+        });
 
     </script>
 </head>

@@ -14,23 +14,22 @@
 
         let getAsciiCode = c => c.charCodeAt(0);
 
+        let getCharFromAscii = c => String.fromCharCode(c);
+
         let swap = (arr, x, y) => {
             let tmp = arr[x];
             arr[x] = arr[y];
             arr[y] = tmp;
-            return arr;
         }
 
         let bubbleSort = function (arr) {
-            console.log(arr);
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    console.log('entró al if');
-                    swap(arr, arr[i], arr[i+1]);
-                    console.log(arr);
+            for (let j in arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i + 1] && arr[i] > arr[i + 1]) {
+                        swap(arr, i, i + 1);
+                    }
                 }
             }
-            console.log(arr);
             return arr;
         }
 
@@ -39,9 +38,17 @@
             $('#button-textbox-one').click(function () {
                 let text = $('#textarea-one').val();
                 let asciiArr = text.split('').map(x => getAsciiCode(x));
-                alert(text);
-                alert(asciiArr);
-                alert(bubbleSort(asciiArr));
+                $('#output-one').text(bubbleSort(asciiArr).map(x => getCharFromAscii(x)).join(''));
+            });
+            $('#button-textbox-two').click(function () {
+                let text = $('#textarea-two').val();
+                let asciiArr = text.split('').map(x => getAsciiCode(x));
+                $('#output-two').text(bubbleSort(asciiArr).map(x => getCharFromAscii(x)).join(''));
+            });
+            $('#button-check').click(function() {
+                if ($('#output-one').text() == $('#output-two').text())
+                    $('#output-three').text('Son iguales las entradas de texto.');
+                else $('#output-three').text('Son diferentes las entradas de texto.');
             });
         });
 
@@ -70,7 +77,7 @@
                         <h3 class="uk-card-title">Entrada Dos</h3>
                         <p>Ingrese el texto a ordenar en el textbox siguiente:</p>
                         <div class="uk-margin">
-                            <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+                            <textarea class="uk-textarea" rows="5" placeholder="Textarea" id="textarea-two"></textarea>
                         </div>
                         <button class="uk-button uk-button-default uk-align-right" id="button-textbox-two">Ordenar</button>
                     </div>
@@ -96,7 +103,6 @@
                 <div>
                     <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
                         <h3 class="uk-card-title">¿Son iguales los inputs?</h3>
-                        <p>Checar si son iguales los inputs.</p>
                         <p id="output-three"></p>
                         <button class="uk-button uk-button-default uk-align-right" id="button-check">Ejecutar</button>
                     </div>
